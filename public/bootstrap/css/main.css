@@ -1,0 +1,37 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 60px;
+}
+
+h1 {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1000;
+    padding: 20px 0;
+    margin: 0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #f8f9fa;
+}
+
+a {
+    text-decoration: none;
+}
+
+.footer-link {
+    color: rgb(53, 52, 52) !important;
+}

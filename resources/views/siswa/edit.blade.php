@@ -13,7 +13,7 @@
         <input type="text" name="alamat" value="{{ $siswa->alamat }}" class="form-control mb-2">
         <label>No HP</label>
         <input type="text" name="no_hp" value="{{ $siswa->no_hp }}" class="form-control mb-2">
-
+        <label>Jenis Kelamin</label>
         <select class="form-select form-select-lg mb-3" aria-label="Default select example" name="jenis_kelamin">
             <option selected>Jenis Kelamin</option>
             <option value="Laki-laki" {{ $siswa->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
