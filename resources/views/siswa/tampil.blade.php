@@ -29,14 +29,34 @@
             <td>{{$data->jenis_kelamin}}</td>
             <td>{{$data->hobi}}</td>
             <td>
-                
-                <form action="{{route('siswa.delete', $data->id)}}" method="post">
-                @csrf
                 <a href="{{route('siswa.edit',$data->id)}}" class="btn btn-warning btn-sm ">Edit</a>
-                <button class="btn btn-danger btn-sm">Hapus</button>
+                <button class="btn btn-danger btn-sm" onclick="confirmDelete({{ $data->id }})">Hapus</button>
+
+                <form id="delete-form-{{ $data->id }}" action="{{route('siswa.delete', $data->id)}}" method="post" style="display: none;">
+                    @csrf
                 </form>
             </td>
         </tr>
         @endforeach
     </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data ini akan dihapus secara permanen!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-form-' + id).submit();
+                }
+            })
+        }
+    </script>
 @endsection
